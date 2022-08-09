@@ -5,12 +5,13 @@ var optionsEl = document.querySelector("#options")
 var submitBtn = document.querySelector("#submit")
 var timerEl = document.querySelector("#time")
 var initialsEl = document.querySelector("#initials")
+var graderEl = document.querySelector("#grader")
 
 //Question object array below
 
 var questions = [
     {
-        title: "Javascript is a ______ landguage?",
+        title: "Javascript is a ______ language?",
         options: ["Object-Oriented", "Object-Based", "Procedural", "None of the above"],
         answer: "Object-Oriented"
     },
@@ -57,37 +58,66 @@ function startQuiz(event) {
     showQuestion();
 }
 
-function showQuestion(){
+//Shows the question at the current index
+function showQuestion() {
     var thisQuestion = questions[activeQuestion];
     var titleEl = document.getElementById("title");
     titleEl.textContent = thisQuestion.title;
-    // optionsEl.textContent = thisQuestion.options;
-    // optionsEl.textContent="";
-    
 
-function showOptions(){
-    for (let i = 0; i < thisQuestion.options.length; i++){
-        var choices = document.createElement("button");
-        choices.textContent=thisQuestion.options[i];
-        optionsEl.appendChild(choices);
-        choices.setAttribute("class", "button")
-        // choices.setAttribute("class", "option");
-        // choices.setAttribute("value", )
-        // choices.textContent = i + 1 + "." + choice;
-        // optionsEl.appendChild(choices);
-        // // choices.addEventListener()
+
+    //Will list the options for the current question below as buttons
+    //HOW DO I APPEND THE BUTTONS TO AN ORDERED LIST? NECESSARY?
+    function showOptions() {
+        for (let i = 0; i < thisQuestion.options.length; i++) {
+            var choices = document.createElement("button");
+            choices.textContent = (i + 1) + ". " + thisQuestion.options[i];
+            optionsEl.appendChild(choices);
+            choices.setAttribute("class", "button")
+
+        }
+
     }
+
+    showOptions();
 }
-showOptions();
+
+function answerSelect() {
+    if (this.value !== thisQuestion.answer) {
+        time -= 10;
+        timerEl.textContent = time;
+        graderEl.textContent = "Incorrect";
+        graderEl.style.color = "red";
+        graderEl.stle.fontSize = "300%";
+    } else {
+        graderEl.textContent = "Correct";
+        graderEl.style.color = "Green";
+        graderEl.stle.fontSize = "300%";
+    }
+    graderEl.setAttribute("class", "grader");
+    setTimeout(function () {
+        graderEl.setAttribute("class", "grader hide")
+    }, 1000);
+
+    activeQuestion++;
+
+    if (activeQuestion === questions.length) {
+        quizEnd();
+    } else {
+        showQuestion();
+    }
 
 }
 
-function countdown () {
+
+function countdown() {
     time--;
-    timerEl.textContent=time;
-    if (time <=0){
-        return;
+    timerEl.textContent = time;
+    if (time === 0) {
+        clearInterval(timerId);
         // quizEnd();
     }
 }
 startBtn.addEventListener("click", startQuiz);
+choices.addEventListener("click", answerSelect);
+
+//the choices button is currently wired incorrectly.
