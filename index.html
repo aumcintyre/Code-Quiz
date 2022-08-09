@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,44 @@
     <title>Document</title>
     <style src="/Assets/css/style.css"></style>
 </head>
+
 <body>
-   
-    
+
+    <!-- High Score button on top left of page -->
+    <div id="highScores">View Highscores</div>
+
+    <!-- Start page will show until click event on start button -->
+
+    <div class="wrapper">
+        <div id="startPage" class="start">
+            <h1>Rapid Coding Quiz</h1>
+            <p>You will have 15 seconds to answer each question. If you choose incorrectly, you will lose 10 seconds
+                from the overall timer!</p>
+        </div>
+
+        <!-- Once the start button is clicked, the questions begin to show. -->
+        <div id="questions" class="hide">
+            <h2 id="title"></h2>
+            <div id="options" class="choices"></div>
+        </div>
+
+        <!-- Once each question has been answered (or the timer hits 0), the end page will display -->
+        <div id="endPage" class="hide">
+            <h2>Complete.</h2>
+            <p>Your total score is <span id="score"></span>!</p>
+            <p>Please enter your initials for the leaderbord: <input type="text" id ="initials">
+            <button id="submit">submit</button>
+            </p>
+
+
+        </div>
+
+
+    </div>
 
 
 
-    <script src="/Assets/js/script.js"></script>    
+    <script src="/Assets/js/script.js"></script>
 </body>
+
 </html>
