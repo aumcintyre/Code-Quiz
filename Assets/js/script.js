@@ -6,7 +6,7 @@ var submitBtn = document.querySelector("#submit")
 // var timerEl = document.queryselector("#time")
 var initialsEl = document.querySelector("#initials")
 
-//Question objects below
+//Question object array below
 
 var questions = [
     {
@@ -39,7 +39,7 @@ var questions = [
         options: ["Variables", "Objects", "Functions", "All of the above"],
         answer: "All of the above"
     }
-]
+];
 
 console.log(questions);
 
@@ -47,3 +47,9 @@ console.log(questions);
 
 var activeQuestion = 0;
 var time = questions.length * 15;
+
+
+function startQuiz() {
+
+    
+}

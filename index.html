@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style src="/Assets/css/style.css"></style>
+    <link rel="stylesheet" href="/Assets/css/style.css">
 </head>
 
 <body>
 
     <!-- High Score button on top left of page -->
     <div id="highScores">View Highscores</div>
+
+    <!-- Timer will go in the top right -->
+    <div id="timer">Time: <span id="time">0</span></div>
+
 
     <!-- Start page will show until click event on start button -->
 
@@ -21,6 +25,7 @@
             <h1>Rapid Coding Quiz</h1>
             <p>You will have 15 seconds to answer each question. If you choose incorrectly, you will lose 10 seconds
                 from the overall timer!</p>
+            <button id="start">Begin</button>
         </div>
 
         <!-- Once the start button is clicked, the questions begin to show. -->
