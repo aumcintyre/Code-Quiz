@@ -3,7 +3,7 @@ var startBtn = document.querySelector("#start")
 var questionEl = document.querySelector("#questions")
 var options = document.querySelector("#options")
 var submitBtn = document.querySelector("#submit")
-// var timerEl = document.queryselector("#time")
+var timerEl = document.querySelector("#time")
 var initialsEl = document.querySelector("#initials")
 
 //Question object array below
@@ -41,15 +41,26 @@ var questions = [
     }
 ];
 
-console.log(questions);
-
-
 
 var activeQuestion = 0;
 var time = questions.length * 15;
+var timerId;
 
 
-function startQuiz() {
-
-    
+// Will run when 'start' button is clicked. Hides the start page and shows the first question and options.
+function startQuiz(event) {
+    var startEl = document.getElementById("startPage");
+    startEl.setAttribute("class", "hide");
+    questionEl.removeAttribute("class");
+    timerId = setInterval(countdown, 1000)
 }
+
+
+function countdown () {
+    time--;
+    timerEl.textContent=time;
+    // if (time <=0){
+    //     quizEnd();
+    // }
+}
+startBtn.addEventListener("click", startQuiz())
