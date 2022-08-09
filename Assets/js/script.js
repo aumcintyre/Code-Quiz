@@ -1,7 +1,7 @@
 //Dom Elements
 var startBtn = document.querySelector("#start")
 var questionEl = document.querySelector("#questions")
-var options = document.querySelector("#options")
+var optionsEl = document.querySelector("#options")
 var submitBtn = document.querySelector("#submit")
 var timerEl = document.querySelector("#time")
 var initialsEl = document.querySelector("#initials")
@@ -53,14 +53,34 @@ function startQuiz(event) {
     startEl.setAttribute("class", "hide");
     questionEl.removeAttribute("class");
     timerId = setInterval(countdown, 1000)
+    console.log("CLICK");
+    showQuestion();
 }
 
+function showQuestion(){
+    var thisQuestion = questions[activeQuestion];
+    var titleEl = document.getElementById("title");
+    titleEl.textContent = thisQuestion.title;
+    optionsEl.textContent="";
+
+    for (let i = 0; i <= optionsEl.length; i++){
+        var choices = document.createElement("button");
+        choices.setAttribute("class", "option");
+        choices.setAttribute("value", choice)
+        choices.textContent = i + 1 + "." + choice;
+        optionsEl.appendChild(choices);
+        // choices.addEventListener()
+    }
+
+
+}
 
 function countdown () {
     time--;
     timerEl.textContent=time;
-    // if (time <=0){
-    //     quizEnd();
-    // }
+    if (time <=0){
+        return;
+        // quizEnd();
+    }
 }
-startBtn.addEventListener("click", startQuiz())
+startBtn.addEventListener("click", startQuiz)
