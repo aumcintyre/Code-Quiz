@@ -5,6 +5,7 @@ background-color: lightgray;
 
 .wrapper {
     margin: 150px auto 0 auto;
+    max-width: 600px;
 }
 
 .hide {
@@ -16,4 +17,9 @@ text-align: center;
 }
 .timer {
     font-size: 100px;
+}
+
+.button{
+    margin: 15px;
+    text-align: center;
 }

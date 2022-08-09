@@ -61,22 +61,27 @@ function showQuestion(){
     var thisQuestion = questions[activeQuestion];
     var titleEl = document.getElementById("title");
     titleEl.textContent = thisQuestion.title;
-    optionsEl.textContent="";
+    // optionsEl.textContent = thisQuestion.options;
+    // optionsEl.textContent="";
+    
 
-var options = function(){
-    for (let i = 0; i <= questions.options.length; i++){
+function showOptions(){
+    for (let i = 0; i < thisQuestion.options.length; i++){
         var choices = document.createElement("button");
-        optionsEl.appendChild("ol");
+        choices.textContent=thisQuestion.options[i];
+        optionsEl.appendChild(choices);
+        choices.setAttribute("class", "button")
         // choices.setAttribute("class", "option");
         // choices.setAttribute("value", )
         // choices.textContent = i + 1 + "." + choice;
         // optionsEl.appendChild(choices);
         // // choices.addEventListener()
     }
-
+}
+showOptions();
 
 }
-}
+
 function countdown () {
     time--;
     timerEl.textContent=time;
