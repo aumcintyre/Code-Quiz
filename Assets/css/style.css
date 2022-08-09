@@ -11,6 +11,9 @@ background-color: lightgray;
     display: none;
 }
 
+.start {
+text-align: center;
+}
 .timer {
     font-size: 100px;
 }

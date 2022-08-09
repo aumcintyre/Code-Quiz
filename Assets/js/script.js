@@ -63,18 +63,20 @@ function showQuestion(){
     titleEl.textContent = thisQuestion.title;
     optionsEl.textContent="";
 
-    for (let i = 0; i <= optionsEl.length; i++){
+var options = function(){
+    for (let i = 0; i <= questions.options.length; i++){
         var choices = document.createElement("button");
-        choices.setAttribute("class", "option");
-        choices.setAttribute("value", choice)
-        choices.textContent = i + 1 + "." + choice;
-        optionsEl.appendChild(choices);
-        // choices.addEventListener()
+        optionsEl.appendChild("ol");
+        // choices.setAttribute("class", "option");
+        // choices.setAttribute("value", )
+        // choices.textContent = i + 1 + "." + choice;
+        // optionsEl.appendChild(choices);
+        // // choices.addEventListener()
     }
 
 
 }
-
+}
 function countdown () {
     time--;
     timerEl.textContent=time;
@@ -83,4 +85,4 @@ function countdown () {
         // quizEnd();
     }
 }
-startBtn.addEventListener("click", startQuiz)
+startBtn.addEventListener("click", startQuiz);
