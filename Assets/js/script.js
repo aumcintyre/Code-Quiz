@@ -85,33 +85,25 @@ console.log(thisQuestion.answer);
     showOptions();
 
     function answerSelect() {
-        console.log("click");
-        
-        //THIS IS WHERE YOU ARE STUCK!
-        console.log(this.textContent);
-       
-       
-        // var ansBtn = document.querySelector("#ansButton")
+    
         if (this.textContent !== thisQuestion.answer) {
-            time -= 10;
+            time -= 30;
             timerEl.textContent = time;
             graderEl.textContent = "Incorrect";
             graderEl.style.color = "red";
             console.log("WRONG"); 
-            // graderEl.stle.fontSize = "300%";
         } else {
             graderEl.textContent = "Correct";
             graderEl.style.color = "Green";
             console.log("RIGHT");
             score++;
-            // graderEl.stle.fontSize = "300%";
         }
 
 
         graderEl.setAttribute("class", "grader");
         setTimeout(function () {
             graderEl.setAttribute("class", "grader hide")
-        }, 10000);
+        }, 1000);
 
         activeQuestion++;
 
