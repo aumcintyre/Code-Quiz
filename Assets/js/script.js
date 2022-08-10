@@ -7,7 +7,7 @@ var timerEl = document.querySelector("#time")
 var initialsEl = document.querySelector("#initials")
 var graderEl = document.querySelector("#grader")
 var endPage = document.querySelector("#endPage")
-
+var scoreEl = document.querySelector("#score")
 //Question object array below
 
 var questions = [
@@ -45,10 +45,9 @@ var questions = [
 
 
 var activeQuestion = 0;
-var activeOptions = 0;
 var time = questions.length * 15;
 var timerId;
-
+var score = 0;
 
 // Will run when 'start' button is clicked. Hides the start page and shows the first question and options.
 function startQuiz(event) {
@@ -71,10 +70,10 @@ function showQuestion() {
     //Will list the options for the current question below as buttons
     //HOW DO I APPEND THE BUTTONS TO AN ORDERED LIST? NECESSARY?
     function showOptions() {
-
+console.log(thisQuestion.answer);
         for (let i = 0; i < thisQuestion.options.length; i++) {
             var choices = document.createElement("button");
-            choices.textContent = (i + 1) + ". " + thisQuestion.options[i];
+            choices.textContent = thisQuestion.options[i];
             optionsEl.appendChild(choices);
             choices.setAttribute("id", "ansButton")
             const ansBtn = document.querySelector("#ansButton")
@@ -87,18 +86,24 @@ function showQuestion() {
 
     function answerSelect() {
         console.log("click");
-        var ansBtn = document.querySelector("#ansButton")
-        if (this.value !== thisQuestion.answer) {
+        
+        //THIS IS WHERE YOU ARE STUCK!
+        console.log(this.textContent);
+       
+       
+        // var ansBtn = document.querySelector("#ansButton")
+        if (this.textContent !== thisQuestion.answer) {
             time -= 10;
             timerEl.textContent = time;
             graderEl.textContent = "Incorrect";
             graderEl.style.color = "red";
-            console.log("WRONG");
+            console.log("WRONG"); 
             // graderEl.stle.fontSize = "300%";
         } else {
             graderEl.textContent = "Correct";
             graderEl.style.color = "Green";
             console.log("RIGHT");
+            score++;
             // graderEl.stle.fontSize = "300%";
         }
 
@@ -106,7 +111,7 @@ function showQuestion() {
         graderEl.setAttribute("class", "grader");
         setTimeout(function () {
             graderEl.setAttribute("class", "grader hide")
-        }, 4000);
+        }, 10000);
 
         activeQuestion++;
 
@@ -140,12 +145,14 @@ function quizEnd() {
     console.log("done");
     questionEl.setAttribute("class", "hide")
     endPage.removeAttribute("class")
+    scoreEl.textContent = score;
     
 }
 
 
 
-var ansBtn = document.querySelector("#ansButton")
+
+// var ansBtn = document.querySelector("#ansButton")
 startBtn.addEventListener("click", startQuiz);
 
 
