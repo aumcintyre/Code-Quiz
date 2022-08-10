@@ -86,23 +86,27 @@ function showQuestion() {
     showOptions();
 
     function answerSelect() {
-        if (this.value !== questions[activeQuestion].answer) {
+        console.log("click");
+        var ansBtn = document.querySelector("#ansButton")
+        if (this.value !== thisQuestion.answer) {
             time -= 10;
             timerEl.textContent = time;
             graderEl.textContent = "Incorrect";
             graderEl.style.color = "red";
+            console.log("WRONG");
             // graderEl.stle.fontSize = "300%";
         } else {
             graderEl.textContent = "Correct";
             graderEl.style.color = "Green";
+            console.log("RIGHT");
             // graderEl.stle.fontSize = "300%";
         }
 
 
         graderEl.setAttribute("class", "grader");
-        // setTimeout(function () {
-        //     graderEl.setAttribute("class", "grader hide")
-        // }, 10000);
+        setTimeout(function () {
+            graderEl.setAttribute("class", "grader hide")
+        }, 4000);
 
         activeQuestion++;
 

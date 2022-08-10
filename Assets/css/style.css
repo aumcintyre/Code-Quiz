@@ -34,6 +34,7 @@ text-align: center;
     margin: 15px;
     text-align: center;
     min-width: 100px;
+    background-color: lightpink;
 }
 
 .grader{
@@ -49,4 +50,8 @@ text-align: center;
 .choices{
     display: flex;
     justify-content: center;
+}
+
+#ansButton{
+    background-color: lightpink;
 }
