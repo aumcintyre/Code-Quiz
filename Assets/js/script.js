@@ -124,7 +124,7 @@ console.log(thisQuestion.answer);
 function countdown() {
     time--;
     timerEl.textContent = time;
-    if (time === 0) {
+    if (time <= 0) {
         clearInterval(timerId);
         quizEnd();
     }
