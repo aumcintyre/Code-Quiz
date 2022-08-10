@@ -1,8 +1,6 @@
 body {
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-background-image: linear-gradient(lightgray, lightblue);
-background-size: cover;
-background-repeat: none;
+background-color: lightblue;
     }
 
 .wrapper {
@@ -13,7 +11,7 @@ background-repeat: none;
     border-style: double;
     border-radius: 5px;
     padding: 20px;
-    background-color: lightslategray;
+    background-color: lightgray;
 }
 
 .hide {

@@ -64,7 +64,6 @@ function startQuiz(event) {
 //Shows the question at the current index
 function showQuestion() {
     var thisQuestion = questions[activeQuestion];
-    var curOptions = options[activeQuestion];
     var titleEl = document.getElementById("title");
     titleEl.textContent = thisQuestion.title;
 
@@ -79,7 +78,7 @@ function showQuestion() {
             optionsEl.appendChild(choices);
             choices.setAttribute("id", "ansButton")
             const ansBtn = document.querySelector("#ansButton")
-            choices.addEventListener("click", answerSelect);
+            choices.addEventListener("click", answerSelect, console.log("click")); 
         }
     }
 
@@ -87,7 +86,7 @@ function showQuestion() {
     showOptions();
 
     function answerSelect() {
-        if (this.value !== thisQuestion.answer) {
+        if (this.value !== questions[activeQuestion].answer) {
             time -= 10;
             timerEl.textContent = time;
             graderEl.textContent = "Incorrect";
@@ -101,9 +100,9 @@ function showQuestion() {
 
 
         graderEl.setAttribute("class", "grader");
-        setTimeout(function () {
-            graderEl.setAttribute("class", "grader hide")
-        }, 1000);
+        // setTimeout(function () {
+        //     graderEl.setAttribute("class", "grader hide")
+        // }, 10000);
 
         activeQuestion++;
 
@@ -112,7 +111,6 @@ function showQuestion() {
         } else {
             optionsEl.innerHTML = "";
             showQuestion();
-            showOptions();
         }
 
     }
@@ -127,13 +125,14 @@ function countdown() {
     timerEl.textContent = time;
     if (time === 0) {
         clearInterval(timerId);
-        time = 0;
         quizEnd();
     }
 
 }
 
 function quizEnd() {
+    timerEl.textContent = "Done!";
+    clearInterval(timerId);
     console.log("done");
     questionEl.setAttribute("class", "hide")
     endPage.removeAttribute("class")
