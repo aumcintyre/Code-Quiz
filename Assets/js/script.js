@@ -57,7 +57,7 @@ function startQuiz(event) {
     questionEl.removeAttribute("class");
     timerId = setInterval(countdown, 1000)
     console.log("CLICK");
-    event.stopPropagation();
+    // event.stopPropagation();
     showQuestion();
 }
 
@@ -78,7 +78,7 @@ function showQuestion() {
             optionsEl.appendChild(choices);
             choices.setAttribute("id", "ansButton")
             const ansBtn = document.querySelector("#ansButton")
-            choices.addEventListener("click", answerSelect, console.log("click")); 
+            choices.addEventListener("click", answerSelect);
         }
     }
 
