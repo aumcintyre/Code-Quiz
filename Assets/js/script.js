@@ -12,7 +12,7 @@ var scoreEl = document.querySelector("#score")
 
 var questions = [
     {
-        title: "Javascript is a ______ language?",
+        title: "Javascript is a(n) ______ language?",
         options: ["Object-Oriented", "Object-Based", "Procedural", "None of the above"],
         answer: "Object-Oriented"
     },
