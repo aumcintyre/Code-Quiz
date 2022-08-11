@@ -8,14 +8,14 @@
     <title>Code-Quiz</title>
     <link rel="stylesheet" href="./Assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- High Score button on top left of page -->
-    <button id="highScores"  style="font-family: 'Silkscreen', cursive;">View Highscores</button>
+    <button id="highScores" style="font-family: 'Silkscreen', cursive;">View Highscores</button>
 
     <!-- Timer will go in the top right -->
     <div id="timer" class="timer">Time: <span id="time">0</span></div>
@@ -47,10 +47,12 @@
         </div>
 
         <div id="grader" class="grader"></div>
-
     </main>
 
-
+    <div id="score" class="hide">
+        <h1>Highscores</h1>
+        <ol id="highscores"></ol>
+    </div>
 
     <script src="./Assets/js/script.js"></script>
 </body>

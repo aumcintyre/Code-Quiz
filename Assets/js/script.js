@@ -69,7 +69,7 @@ function showQuestion() {
 
     //Will list the options for the current question below as buttons
     function showOptions() {
-console.log(thisQuestion.answer);
+        console.log(thisQuestion.answer);
         for (let i = 0; i < thisQuestion.options.length; i++) {
             var choices = document.createElement("button");
             choices.textContent = thisQuestion.options[i];
@@ -84,13 +84,13 @@ console.log(thisQuestion.answer);
     showOptions();
 
     function answerSelect() {
-    
+
         if (this.textContent !== thisQuestion.answer) {
             time -= 30;
             timerEl.textContent = time;
             graderEl.textContent = "Incorrect";
             graderEl.style.color = "red";
-            console.log("WRONG"); 
+            console.log("WRONG");
         } else {
             graderEl.textContent = "Correct";
             graderEl.style.color = "Green";
@@ -112,13 +112,8 @@ console.log(thisQuestion.answer);
             optionsEl.innerHTML = "";
             showQuestion();
         }
-
     }
-
-
-    //insert function to show total score here
 }
-
 
 function countdown() {
     time--;
@@ -137,12 +132,16 @@ function quizEnd() {
     questionEl.setAttribute("class", "hide")
     endPage.removeAttribute("class")
     scoreEl.textContent = score;
-    
+
 }
 
-function getHighscore(){
+//insert function to show total score here
+
+function getHighscore() {
     var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
     var initials = initialsEl.value;
+
+    //scoreEl.value doesn't seem correct?
 
 
     var totalScore = {
@@ -150,14 +149,32 @@ function getHighscore(){
         initials: initials
     }
 
+ 
     highscore.push(totalScore);
     localStorage.setItem("highscore", JSON.stringify(highscore));
+
+//Can this all be one function?
+function showHighScore(){
+    var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
+    highscore.sort(function (a, b) {
+        return b.score - a.score
+    });
+
+    for (let i = 0; i <= totalScore.length; i++){
+        var rows = document.createElement("li")[i];}
+    // rows.innerText = initials + " - " + score;
     
+    var rankEl = document.getElementById("highscores");
+    rankEl.append(rows);
+    // rows.textContent = "SCORE";
+    endPage.setAttribute("class", "hide")
+    scoreEl.removeAttribute("class")
+    console.log(totalScore);
 }
+showHighScore();   
+}
+submitBtn.addEventListener("click", getHighscore);
 
-
-// var ansBtn = document.querySelector("#ansButton")
 startBtn.addEventListener("click", startQuiz);
-submitBtn.addEventListener("click", getHighscore)
 
-//the choices button is currently wired incorrectly.
+
