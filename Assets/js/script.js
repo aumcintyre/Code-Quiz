@@ -212,7 +212,7 @@ function getHighscore() {
 // }
 
 submitBtn.addEventListener("click", getHighscore);
-highBtn.addEventListener("click", showScore);
+// highBtn.addEventListener("click", showScore); --- Trying to use this function to show the scoreboard when the top left button is clicked.
 startBtn.addEventListener("click", startQuiz);
 
 
