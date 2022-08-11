@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code-Quiz</title>
     <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- High Score button on top left of page -->
-    <button id="highScores" style="font-size: 20px">View Highscores</button>
+    <button id="highScores"  style="font-family: 'Silkscreen', cursive;">View Highscores</button>
 
     <!-- Timer will go in the top right -->
     <div id="timer" class="timer">Time: <span id="time">0</span></div>
@@ -20,9 +23,9 @@
 
     <!-- Start page will show until click event on start button -->
 
-    <div class="wrapper">
+    <main class="wrapper">
         <div id="startPage" class="start">
-            <h1>Rapid Coding Quiz</h1>
+            <h1 style="font-family:'Silkscreen', cursive;">Rapid Coding Quiz</h1>
             <p>You will have 15 seconds to answer each question. If you choose incorrectly, you will lose 30 seconds
                 from the overall timer, so choose wisely!</p>
             <button id="start">Begin</button>
@@ -41,13 +44,11 @@
             <p>Please enter your initials for the leaderboard: <input type="text" id="initials">
                 <button id="submit">submit</button>
             </p>
-
-
-
         </div>
+
         <div id="grader" class="grader"></div>
 
-    </div>
+    </main>
 
 
 

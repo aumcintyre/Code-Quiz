@@ -68,7 +68,6 @@ function showQuestion() {
 
 
     //Will list the options for the current question below as buttons
-    //HOW DO I APPEND THE BUTTONS TO AN ORDERED LIST? NECESSARY?
     function showOptions() {
 console.log(thisQuestion.answer);
         for (let i = 0; i < thisQuestion.options.length; i++) {
@@ -141,11 +140,24 @@ function quizEnd() {
     
 }
 
+function getHighscore(){
+    var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
+    var initials = initialsEl.value;
 
+
+    var totalScore = {
+        score: score,
+        initials: initials
+    }
+
+    highscore.push(totalScore);
+    localStorage.setItem("highscore", JSON.stringify(highscore));
+    
+}
 
 
 // var ansBtn = document.querySelector("#ansButton")
 startBtn.addEventListener("click", startQuiz);
-
+submitBtn.addEventListener("click", getHighscore)
 
 //the choices button is currently wired incorrectly.

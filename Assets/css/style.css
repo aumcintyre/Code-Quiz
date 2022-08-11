@@ -23,6 +23,10 @@ background-color: lightblue;
 text-align: center;
 }
 
+.start h1{
+    font-size: 60px;
+}
+
 .timer {
     font-size: 20px;
     position: absolute;
