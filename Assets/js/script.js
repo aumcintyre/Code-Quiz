@@ -9,7 +9,7 @@ var graderEl = document.querySelector("#grader")
 var endPage = document.querySelector("#endPage")
 var scoreEl = document.querySelector("#score")
 var scoresEl = document.querySelector("#scores")
-var highBtn = document.querySelector
+var highBtn = document.querySelector("#high")
 //Question object array below
 
 var questions = [
@@ -155,7 +155,7 @@ function getHighscore() {
 
     //Can this all be one function?
     function showHighScore() {
-        // var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
+        var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
         highscore.sort(function (a, b) {
             return b.score - a.score
         });
@@ -171,17 +171,48 @@ function getHighscore() {
             rows.text
             console.log(rows);
         }
-        
- //------- THIS LINE BREAKS
+
+        //------- THIS LINE BREAKS
         endPage.setAttribute("class", "hide");
         scoresEl.classList.remove("hide")
-        
+
         console.log(totalScore);
     }
     showHighScore();
 }
-submitBtn.addEventListener("click", getHighscore);
 
+// function showScore() {
+
+//     var totalScore = {
+//         score: score,
+//         initials: initials
+//     }
+
+
+//     var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
+//     highscore.sort(function (a, b) {
+//         return b.score - a.score
+//     });
+
+//     for (let i = 0; i <= highscore.length; i++) {
+//         var rows = document.createElement("li");
+
+//         var rankEl = document.getElementById("highscores");
+//         rankEl.append(rows);
+//         // rows.textContent = "SCORE";
+//         // rows.itextContent = (initials.initials + " - " + score.score);
+//         rows.innerHTML = (totalScore.initials + " - " + totalScore.score);
+//         rows.text
+//         console.log(rows);
+//     }
+
+//     scoresEl.classList.remove("hide")
+
+//     console.log(totalScore);
+// }
+
+submitBtn.addEventListener("click", getHighscore);
+highBtn.addEventListener("click", showScore);
 startBtn.addEventListener("click", startQuiz);
 
 
