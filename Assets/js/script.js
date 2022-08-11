@@ -8,6 +8,8 @@ var initialsEl = document.querySelector("#initials")
 var graderEl = document.querySelector("#grader")
 var endPage = document.querySelector("#endPage")
 var scoreEl = document.querySelector("#score")
+var scoresEl = document.querySelector("#scores")
+var highBtn = document.querySelector
 //Question object array below
 
 var questions = [
@@ -141,37 +143,42 @@ function getHighscore() {
     var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
     var initials = initialsEl.value;
 
-    //scoreEl.value doesn't seem correct?
-
 
     var totalScore = {
         score: score,
         initials: initials
     }
 
- 
+
     highscore.push(totalScore);
     localStorage.setItem("highscore", JSON.stringify(highscore));
 
-//Can this all be one function?
-function showHighScore(){
-    var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
-    highscore.sort(function (a, b) {
-        return b.score - a.score
-    });
+    //Can this all be one function?
+    function showHighScore() {
+        // var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
+        highscore.sort(function (a, b) {
+            return b.score - a.score
+        });
 
-    for (let i = 0; i <= totalScore.length; i++){
-        var rows = document.createElement("li")[i];}
-    // rows.innerText = initials + " - " + score;
-    
-    var rankEl = document.getElementById("highscores");
-    rankEl.append(rows);
-    // rows.textContent = "SCORE";
-    endPage.setAttribute("class", "hide")
-    scoreEl.removeAttribute("class")
-    console.log(totalScore);
-}
-showHighScore();   
+        for (let i = 0; i <= highscore.length; i++) {
+            var rows = document.createElement("li");
+
+            var rankEl = document.getElementById("highscores");
+            rankEl.append(rows);
+            // rows.textContent = "SCORE";
+            // rows.itextContent = (initials.initials + " - " + score.score);
+            rows.innerHTML = (totalScore.initials + " - " + totalScore.score);
+            rows.text
+            console.log(rows);
+        }
+        
+ //------- THIS LINE BREAKS
+        endPage.setAttribute("class", "hide");
+        scoresEl.classList.remove("hide")
+        
+        console.log(totalScore);
+    }
+    showHighScore();
 }
 submitBtn.addEventListener("click", getHighscore);
 
