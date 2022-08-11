@@ -167,6 +167,9 @@ function getHighscore() {
             rankEl.append(rows);
             // rows.textContent = "SCORE";
             // rows.itextContent = (initials.initials + " - " + score.score);
+
+            //This displays only the most recent score in each row of the leaderboard.
+
             rows.innerHTML = (totalScore.initials + " - " + totalScore.score);
             rows.text
             console.log(rows);
@@ -212,7 +215,7 @@ function getHighscore() {
 // }
 
 submitBtn.addEventListener("click", getHighscore);
-// highBtn.addEventListener("click", showScore); --- Trying to use this function to show the scoreboard when the top left button is clicked.
+// highBtn.addEventListener("click", showScore); --- Trying to use this function to show the scoreboard when the top left button is clicked. It's pulling HTML Objects from storage, but not displaying the values
 startBtn.addEventListener("click", startQuiz);
 
 
