@@ -72,6 +72,7 @@ function showQuestion() {
     //Will list the options for the current question below as buttons
     function showOptions() {
         console.log(thisQuestion.answer);
+
         for (let i = 0; i < thisQuestion.options.length; i++) {
             var choices = document.createElement("button");
             choices.textContent = thisQuestion.options[i];
@@ -160,22 +161,16 @@ function getHighscore() {
             return b.score - a.score
         });
 
-        for (let i = 0; i <= highscore.length; i++) {
+
+
+        highscore.forEach(function (totalScore) {
             var rows = document.createElement("li");
-
             var rankEl = document.getElementById("highscores");
+            rows.textContent = (totalScore.initials + " - " + totalScore.score);
             rankEl.append(rows);
-            // rows.textContent = "SCORE";
-            // rows.itextContent = (initials.initials + " - " + score.score);
-
-            //This displays only the most recent score in each row of the leaderboard.
-
-            rows.innerHTML = (totalScore.initials + " - " + totalScore.score);
-            rows.text
             console.log(rows);
-        }
+        });
 
-        //------- THIS LINE BREAKS
         endPage.setAttribute("class", "hide");
         scoresEl.classList.remove("hide")
 
@@ -184,38 +179,9 @@ function getHighscore() {
     showHighScore();
 }
 
-// function showScore() {
-
-//     var totalScore = {
-//         score: score,
-//         initials: initials
-//     }
-
-
-//     var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
-//     highscore.sort(function (a, b) {
-//         return b.score - a.score
-//     });
-
-//     for (let i = 0; i <= highscore.length; i++) {
-//         var rows = document.createElement("li");
-
-//         var rankEl = document.getElementById("highscores");
-//         rankEl.append(rows);
-//         // rows.textContent = "SCORE";
-//         // rows.itextContent = (initials.initials + " - " + score.score);
-//         rows.innerHTML = (totalScore.initials + " - " + totalScore.score);
-//         rows.text
-//         console.log(rows);
-//     }
-
-//     scoresEl.classList.remove("hide")
-
-//     console.log(totalScore);
-// }
-
 submitBtn.addEventListener("click", getHighscore);
-// highBtn.addEventListener("click", showScore); --- Trying to use this function to show the scoreboard when the top left button is clicked. It's pulling HTML Objects from storage, but not displaying the values
+highBtn.addEventListener("click", getHighscore);
+// --- Trying to use this function to show the scoreboard when the top left button is clicked. It's pulling HTML Objects from storage, but not displaying the values
 startBtn.addEventListener("click", startQuiz);
 
 
