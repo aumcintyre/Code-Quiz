@@ -14,11 +14,13 @@ Repo link: https://github.com/aumcintyre/Code-Quiz
 
 ## Screenshot
 
-![Screenshot](./Assets/images/password-gen-screenshot.png)
+![Screenshot](/Assets/Screenshot%202022-08-11%20215839.png)
 
 ## My Experience
 
-This was definitely the biggest challenge so far in this course.  The start page, button, and timer were all pretty straightforward. 
+This was definitely the biggest challenge so far in this course.  The start page, button, and timer were all pretty straightforward. I ran into some trouble with adding and removing classes via Javascript. I was putting some divs into bigger containers that still had the "hide" class attached. I also ran into trouble with my class and id names. I actually used the same id for different things on two different occasions and needed another set of eyes to figure out why nothing was working. 
+
+Storing the information was pretty simple, but adding those values to javascript-created elements gave me some trouble. Eventually, with help from a few different sources, I was able to iron out most of my issues. Overall, from where I started at on this project, I am thrilled with how it turned out. 
 
 ## Credit
 
